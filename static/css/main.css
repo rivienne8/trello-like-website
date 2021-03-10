@@ -1,0 +1,44 @@
+#boards {
+    background-color: green;
+}
+
+
+
+
+/*Testowe Asi*/
+.popup {
+    display: flex;
+    flex-direction: column;
+    visibility: hidden;
+    text-align: justify;
+    background-color: #70b037;
+    position: fixed;
+    top: 20vh;
+    left: 30px;
+    right: 0;
+    height: 40vh;
+    width: 70vw;
+    padding: 2rem;
+}
+
+.board-column {
+    display: flex;
+    flex-direction: column;
+    background-color: #cdef7a;
+    margin: 5%;
+    padding: 2rem;
+    width: 30%;
+
+}
+
+
+.board {
+    display: flex;
+    margin: 5%;
+    padding: 2rem;
+    width: 30%;
+    border: solid firebrick 1px;
+    background-color: #cfb735;
+}
+
+/*Koniec Testowe Asi*/

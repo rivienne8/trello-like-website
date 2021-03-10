@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>ProMan</title>
+
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon/favicon.ico') }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon/favicon-32x32.png') }}">
+        <link rel="icon" type="image/png" sizes="96x96" href="{{ url_for('static', filename='favicon/favicon-96x96.png') }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon/favicon-16x16.png') }}">
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/solid.css" integrity="sha384-rdyFrfAIC05c5ph7BKz3l5NG5yEottvO/DQ0dCrwD8gzeQDjYBHNr1ucUpQuljos" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/fontawesome.css" integrity="sha384-u5J7JghGz0qUrmEsWzBQkfvc8nK3fUT7DCaQzNQ+q4oEXhGSx+P2OqjWsfIRB8QT" crossorigin="anonymous">
+
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/design.css') }}">
+        <script type="module" src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+    </head>
+    <body>
+        <h1>ProMan</h1>
+        <div class="login">
+            {% if session[username] %}
+                <div id="username-name"
+                     data-username="{{ session[username] }}"
+                     data-user_id="{{ user_id }}">{{ session[username] }}</div>
+            {% else %}
+                <div id="username-name"></div>
+            {% endif %}
+            <a id="register">Register / </a><a id="login">Login</a>
+            <a id="logout" class="none-displayed" >Logout</a>
+
+        </div>
+        <div id="boards"></div>
+        <button class="add-board-button" id="add-board-button">Create new board</button>
+        <div class="add-new-board-container" id="add-new-board-container">
+            <input id="add-board-input" type="text" placeholder="Give name">
+            <button id="save-new-board-button" >SAVE</button>
+        </div>
+
+<!--  DIV FOR JS TO SHOW POPUP NEW CARD  -->
+        <div id="new-card-form" class="popup">
+            <form>
+                <label for="card-title">Title</label>
+                <input id="card-title"  required type="text" minlength="1">
+
+                <input id="card-board-id" type="hidden" value="">
+                <input id="card-status-id" type="hidden" value="">
+                <button id="save-new-card" type="button">Save</button>
+            </form>
+            <div class="card-remove"><i class="fas fa-times"></i></div>
+        </div>
+
+
+    <!-- DIV FOR JS TO SHOW POPUP REGISTRATION FORM -->
+        <div id="register-form" class="popup">
+            <form>
+                <div id="register-status"></div>
+                <label for="username-input">Username</label>
+                <input id="username-input"  required type="text" minlength="1">
+                <label for="password-input">Password</label>
+                <input id="password-input" type="password" required value="">
+                <button id="save-new-user" type="button" >Save</button>
+                <button id="login-user" class="none-displayed" type="button" >Login</button>
+            </form>
+            <div class="card-remove"><i class="fas fa-times"></i></div>
+        </div>
+    </body>
+</html>
